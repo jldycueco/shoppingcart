@@ -1,10 +1,14 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../flux/action/cartAction';
 
 const Product = ({ item }) => {
   let { _id, price, image, description, name } = item;
 
-  const handleClick = (id) => {
-    console.log('clicked', id);
+  const dispatch = useDispatch();
+
+  const addItemToCart = () => {
+    dispatch(addToCart(item));
   };
 
   return (
@@ -17,7 +21,7 @@ const Product = ({ item }) => {
         </div>
         <img src={image} alt={image} />
         <p>{description}</p>
-        <button id={_id} onClick={() => handleClick(_id)}>
+        <button id={_id} onClick={addItemToCart}>
           Add to Cart
         </button>
       </li>

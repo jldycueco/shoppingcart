@@ -14,8 +14,7 @@ const OrderSchema = new Schema(
     total: Number,
     cartItems: [
       {
-        _id: String,
-        title: String,
+        name: String,
         price: Number,
         count: Number,
       },
