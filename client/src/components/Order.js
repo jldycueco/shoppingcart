@@ -14,27 +14,23 @@ const OrdersList = () => {
   return (
     <>
       <div>My Orders</div>
-      {/* {order.length > 0 &&  */}
-        <>
-          {order.map(order => {
-            let { _id, name, cartItems } = order
-            return (
-              <div key ={_id}>
-                <div>{_id}</div>
-                <div>{name}</div>
-                {cartItems.map(item => {
-                  let {price, name, count, _id} = item;
-                  return (
-                    <div key={_id}>
-                      <div>{count} x {name} at {price}</div>
-                    </div>
-                  )
-                })}
-              </div>
-            )
-          })}
-        </>
-      {/* } */}
+      {order.map(order => {
+        let { _id, name, cartItems } = order
+        return (
+          <div key ={_id}>
+            <div>{_id}</div>
+            <div>{name}</div>
+            {cartItems.map(item => {
+              let {price, name, count, _id} = item;
+              return (
+                <div key={_id}>
+                  <div>{count} x {name} at {price}</div>
+                </div>
+              )
+            })}
+          </div>
+        )
+      })}
     </>
   );
 }
