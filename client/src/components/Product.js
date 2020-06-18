@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../flux/action/cartAction';
+import { addToCart } from '../redux/action/cartAction';
 
 const Product = ({ item }) => {
   let { _id, price, image, description, name } = item;

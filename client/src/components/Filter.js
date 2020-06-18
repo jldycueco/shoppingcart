@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   filterProducts,
   sortProducts,
-} from '../flux/action/productAction';
+} from '../redux/action/productAction';
 
 const Filter = () => {
   const dispatch = useDispatch();

@@ -7,7 +7,7 @@ import axios from 'axios';
 
 export const fetchOrders = () => async (dispatch) => {
   const { data } = await axios.get('/api/order');
-
+  
   dispatch({
     type: FETCH_ORDERS,
     payload: data.data,

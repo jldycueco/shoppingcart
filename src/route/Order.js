@@ -7,7 +7,7 @@ router.get('/', async (req, res) => {
   try {
     const orders = await Order.find();
     return res.json({
-      msg: 'New Order added!',
+      msg: 'Found Orders!',
       data: orders,
       success: true,
     });

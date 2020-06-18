@@ -1,16 +1,24 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart } from '../flux/action/cartAction';
-import { createOrder } from '../flux/action/orderAction';
+import { removeFromCart } from '../redux/action/cartAction';
+import { createOrder, fetchOrders } from '../redux/action/orderAction';
 
 const Cart = () => {
   const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
 
+  const handleCreateOrder = () => {
+    dispatch(createOrder(order));
+  };
+
   const removeItemFromCart = (product) => {
     dispatch(removeFromCart(product));
   };
+
+  const handleFetchOrders = () => {
+    dispatch(fetchOrders())
+  }
 
   const totalPrice = cartItems.reduce(
     (a, c) => a + c.price * c.count,
@@ -25,9 +33,7 @@ const Cart = () => {
     cartItems: cartItems,
   };
 
-  const handleCreateOrder = () => {
-    dispatch(createOrder(order));
-  };
+
 
   return (
     <>
@@ -50,6 +56,7 @@ const Cart = () => {
           </ul>
           <div>Total: {totalPrice}</div>
           <button onClick={handleCreateOrder}>Order</button>
+          <button onClick={handleFetchOrders}>View previous orders</button>
         </>
       )}
     </>
