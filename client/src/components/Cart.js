@@ -32,9 +32,7 @@ const Cart = () => {
     total: totalPrice,
     cartItems: cartItems,
   };
-
-
-
+  
   return (
     <>
       {cartItems.length === 0 ? (

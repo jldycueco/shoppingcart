@@ -5,7 +5,7 @@ import {
 } from '../action/type';
 
 const initialState = {
-  order: null,
+  order: [],
 };
 
 const orderReducer = (state = initialState, action) => {

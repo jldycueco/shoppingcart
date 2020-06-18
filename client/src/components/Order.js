@@ -5,28 +5,36 @@ import { fetchOrders } from '../redux/action/orderAction';
 const OrdersList = () => {
   const dispatch = useDispatch();
 
-  const { cartItems } = useSelector(state => state.cart);
+  const { order } = useSelector(state => state.order);
 
   useEffect(()=> {
     dispatch(fetchOrders());
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <>
       <div>My Orders</div>
-      <ul>
-
-      </ul>
-      {cartItems.map(item => {
-        let {price, count, name, _id} = item;
-        return (
-          <li key = {_id}>
-            <div>id: {_id}</div>
-            <div>{count} x {name} at {price}</div>
-          </li>
-        )
-        
-      })}
+      {/* {order.length > 0 &&  */}
+        <>
+          {order.map(order => {
+            let { _id, name, cartItems } = order
+            return (
+              <div key ={_id}>
+                <div>{_id}</div>
+                <div>{name}</div>
+                {cartItems.map(item => {
+                  let {price, name, count, _id} = item;
+                  return (
+                    <div key={_id}>
+                      <div>{count} x {name} at {price}</div>
+                    </div>
+                  )
+                })}
+              </div>
+            )
+          })}
+        </>
+      {/* } */}
     </>
   );
 }
