@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/action/cartAction';
+import { Grid, Button } from 'semantic-ui-react';
 
 const Product = ({ item }) => {
   let { _id, price, image, description, name } = item;
@@ -13,7 +14,7 @@ const Product = ({ item }) => {
 
   return (
     <>
-      <li id={_id}>
+      <Grid.Column id={_id}>
         <div>{name} </div>
         <div>
           Price: <span>&#8369;</span>
@@ -21,10 +22,10 @@ const Product = ({ item }) => {
         </div>
         <img src={image} alt={image} />
         <p>{description}</p>
-        <button id={_id} onClick={addItemToCart}>
+        <Button id={_id} onClick={addItemToCart}>
           Add to Cart
-        </button>
-      </li>
+        </Button>
+      </Grid.Column>
     </>
   );
 };

@@ -1,39 +1,44 @@
 import React, { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
 
-const Navbar = ({history}) => {
+const Navbar = ({ history }) => {
   const [state, setState] = useState({
-    activeItem: 'home'
+    activeItem: 'home',
   });
 
-  const handleItemClick = (e, {name}) => {
+  const handleItemClick = (e, { name }) => {
     setState({
       ...state,
       activeItem: name,
     });
     if (name === 'home') {
-      history.push('/')
+      history.push('/');
     } else {
-      history.push(`/${name}`)
+      history.push(`/${name}`);
     }
   };
 
-  return ( 
+  return (
     <>
-      <Menu pointing secondary>
+      <Menu pointing secondary className="navmenu">
         <Menu.Item
-          name='home'
+          name="home"
           active={state.activeItem === 'home'}
           onClick={handleItemClick}
         />
         <Menu.Item
-          name='order'
+          name="cart"
+          active={state.activeItem === 'cart'}
+          onClick={handleItemClick}
+        />
+        <Menu.Item
+          name="order"
           active={state.activeItem === 'order'}
           onClick={handleItemClick}
         />
       </Menu>
     </>
-   );
-}
- 
+  );
+};
+
 export default Navbar;

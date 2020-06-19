@@ -2,28 +2,28 @@ import React from 'react';
 import './App.css';
 import { Switch, Route, useHistory } from 'react-router-dom';
 import ProductsList from './pages/ProductsList';
-import Filter from './components/Filter';
-import Cart from './components/Cart';
 import Navbar from './components/Navbar';
 import OrdersList from './components/Order';
+import CartItems from './pages/CartItems';
 
 function App() {
   const history = useHistory();
 
   return (
-    <>
-      <Navbar history={history}/>
+    <div className="App">
+      <Navbar history={history} />
       <Switch>
         <Route exact path="/">
-          <Cart />
-          <Filter />
           <ProductsList />
         </Route>
-        <Route exact path='/order'>
+        <Route exact path="/order">
           <OrdersList />
         </Route>
+        <Route path="/cart">
+          <CartItems />
+        </Route>
       </Switch>
-    </>
+    </div>
   );
 }
 
